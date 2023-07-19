@@ -7,10 +7,13 @@ import 'package:google_map_live/mymap.dart';
 import 'package:location/location.dart' as loc;
 import 'package:permission_handler/permission_handler.dart';
 
+import 'login/login.dart';
+import 'register/register.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MaterialApp(home: MyApp()));
+  runApp(MaterialApp(home: MyRegister()));
 }
 
 class MyApp extends StatefulWidget {
@@ -101,7 +104,7 @@ class _MyAppState extends State<MyApp> {
       await FirebaseFirestore.instance.collection('location').doc('user1').set({
         'latitude': _locationResult.latitude,
         'longitude': _locationResult.longitude,
-        'name': 'john'
+        'name': 'Pratap'
       }, SetOptions(merge: true));
     } catch (e) {
       print(e);
@@ -119,7 +122,7 @@ class _MyAppState extends State<MyApp> {
       await FirebaseFirestore.instance.collection('location').doc('user1').set({
         'latitude': currentlocation.latitude,
         'longitude': currentlocation.longitude,
-        'name': 'john'
+        'name': 'Pratap'
       }, SetOptions(merge: true));
     });
   }
